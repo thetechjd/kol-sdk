@@ -10,13 +10,13 @@ class CadetSDK {
         this.apiKey = apiKey;
         this.secretKey = secretKey;
         this.baseUrl = baseUrl;
-        this.token = null; // Store the authentication token
+        this.token = null; 
         if (!apiKey || !secretKey) {
             throw new Error('Both apiKey and secretKey are required.');
         }
         this.client = axios_1.default.create({
             baseURL: baseUrl,
-            timeout: 5000, // 5 seconds timeout
+            // timeout:timeout || 10000, // Default timeout of 10 seconds
             headers: {
                 'X-Secret-Key': secretKey,
                 'Content-Type': 'application/json',
@@ -28,17 +28,17 @@ class CadetSDK {
     */
     
     async authenticate() {
-    try {
-        const response = await this.client.post('/admin/authenticate', {
-        publicKey: this.apiKey,
-        secretKey: this.secretKey,
-        });
-        this.token = response.data.sessionToken;
-        this.client.defaults.headers.Authorization = `Bearer ${this.token}`;
-    } catch (error) {
-        console.error('Auth error:', error.response?.data || error.message);
-        throw new Error(error.response?.data?.message || error.message);
-    }
+        try {
+            const response = await this.client.post('/admin/authenticate', {
+                publicKey: this.apiKey,
+                secretKey: this.secretKey,
+            });
+            this.token = response.data.sessionToken || response.data.token;
+            this.client.defaults.headers.Authorization = `Bearer ${this.token}`;
+        } catch (error) {
+            console.error('Auth error:', error.response?.data || error.message);
+            throw new Error(error.response?.data?.message || error.message);
+        }
     }
 
     async getKolTweets() {

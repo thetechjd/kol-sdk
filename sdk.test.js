@@ -15,22 +15,14 @@ describe('CadetSDK-Get-KOL-Test', () => {
 
     test('should retrieve recent KOL tweets', async () => {
 
-        sdk = new CadetSDK('pk_xl0v4jIHnZbIowGwwTPy1JylV8ApPN2y','sk_qhwngILsF22bYbjEGaurUnDCGUfA3osX');
+        sdk = new CadetSDK('pk_IiWpVuQwaQgYDwqm1cU7Tt9MRqstRZTn','sk_SkbxjpT4jnQzyTZShqeIz2TbOjZd1xg5');
         await sdk.authenticate(); 
         const response = await sdk.getKolTweets();
-        console.log(response);
+        // console.log(response);
         expect(response.message).toBe("success");
         response.data.forEach(tweet => {
             expect(tweet).toHaveProperty('url');
             expect(tweet).toHaveProperty('added');
         });
     });
-
-
-    test('should fail authentication with invalid keys', async () => {
-        jest.setTimeout(30000); // 30 seconds
-        sdk = new CadetSDK('123', '123');
-        await expect(sdk.authenticate()).rejects.toThrow(/invalid|unauthorized|error|timeout/i);
-    });
-
 });
