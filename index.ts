@@ -28,7 +28,7 @@ export default class CadetSDK {
     private token: string | null;
     private client: AxiosInstance;
 
-    constructor(apiKey: string, secretKey: string, baseUrl = "http://localhost:8001/api/") {
+    constructor(apiKey: string, secretKey: string, baseUrl = "https://api.cryptocadet.app/api/") {
         if (!apiKey || !secretKey) {
         throw new Error("Both apiKey and secretKey are required.");
         }
