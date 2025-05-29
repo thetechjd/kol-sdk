@@ -2,7 +2,7 @@
   "name": "@cryptocadet/recent-kol-sdk",
   "private": false,
   "version": "1.1.0",
-  "main": "dist/index.js", 
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
@@ -18,7 +18,13 @@
     "type": "git",
     "url": ""
   },
-  "keywords": ["react", "crypto", "sdk", "typescript", "api"],
+  "keywords": [
+    "react",
+    "crypto",
+    "sdk",
+    "typescript",
+    "api"
+  ],
   "author": "The TechJD",
   "license": "ISC",
   "description": "CryptoCadet SDK: Fetch the Most Recent KOL Tweets from X (formerly Twitter)",
