@@ -1,0 +1,36 @@
+{
+  "name": "@cryptocadet/recent-kol-sdk",
+  "private": false,
+  "version": "1.1.0",
+  "main": "dist/index.js", 
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": ["react", "crypto", "sdk", "typescript", "api"],
+  "author": "The TechJD",
+  "license": "ISC",
+  "description": "CryptoCadet SDK: Fetch the Most Recent KOL Tweets from X (formerly Twitter)",
+  "dependencies": {
+    "axios": "^1.7.9"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.10.5",
+    "axios-mock-adapter": "^2.1.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2"
+  }
+}
