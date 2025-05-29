@@ -6,7 +6,7 @@ jest.setTimeout(15000);
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
 class CadetSDK {
-    constructor(apiKey, secretKey, baseUrl = 'http://localhost:8001/api/') {
+    constructor(apiKey, secretKey, baseUrl = 'https://api.cryptocadet.app/api/') {
         this.apiKey = apiKey;
         this.secretKey = secretKey;
         this.baseUrl = baseUrl;
